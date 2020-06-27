@@ -97,3 +97,11 @@ def showtwo(request):
     router = Router.objects.filter(is_deleted=0)
     print(router)
     return render(request,"exerciseone/show_two.html",{'router':router})
+
+def range(request):
+    result = '''range'''
+    return HttpResponse(result)
+
+def sapid(request):
+    result = '''sapid'''
+    return HttpResponse(result)

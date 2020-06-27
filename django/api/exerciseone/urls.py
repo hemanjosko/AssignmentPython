@@ -1,5 +1,5 @@
 from django.urls import path
-
+from rest_framework.authtoken.views import obtain_auth_token
 from . import views
 
 urlpatterns = [
@@ -7,11 +7,13 @@ urlpatterns = [
     path('generatedata/', views.generatedata),
     path('router/', views.router),
     path('show/', views.show),
-    path('token-auth/show/', views.showtwo),
     path('edit/<int:id>', views.edit),
     path('update/<int:id>', views.update),
     path('delete/<int:id>', views.destroy),
     path('deleteip/<str:id>', views.deleteonip),
     path('editip/<str:id>', views.editip),
+    path('token-auth/show/', views.showtwo),
     path('token-auth/uniquerouter/', views.uniquerouter),
+    path('token-auth/range/', views.range),
+    path('token-auth/sapid/', views.sapid),
 ]
