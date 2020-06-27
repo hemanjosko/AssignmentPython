@@ -44,7 +44,8 @@ def uniquerouter(request):
         print(form.is_valid())
         if form.is_valid():
             try:
-                count = Router.objects.filter(loopback=form.loopback, hostname=form.hostname).count()
+                count = Router.objects.filter(loopback=form['loopback'].value(), hostname=form['hostname'].value()).count()
+                print(count)
                 if count > 1:
                     return HttpResponse("Need unique loopback and hostname")
                 form.save()
