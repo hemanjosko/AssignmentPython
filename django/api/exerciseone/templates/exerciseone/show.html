@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Records</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+</head>
+<body>
+
+    <div style="float:right">
+        <a href="/">Home(Exercise one)</a>/
+        <a href="/two/">Exercise Two</a>/
+        <a href="/three/">Exercise Three</a>
+    </div>
+
+    <div style="clear:both">
+        <a href="/generatedata">Generate Data</a>
+    </div>
+    <br/><br/>
+
+<table class="table table-striped table-bordered table-sm">
+    <thead class="thead-dark">
+    <tr>
+        <th>Router SapId</th>
+        <th>Router Hostname</th>
+        <th>Router Loopback(ipv4)</th>
+        <th>Router MacAddress</th>
+        <th colspan="3">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+{% for rout in router %}
+    <tr>
+        <td>{{ rout.sapid }}</td>
+        <td>{{ rout.hostname }}</td>
+        <td>{{ rout.loopback }}</td>
+        <td>{{ rout.macaddress }}</td>
+        <td>
+            <a href="/edit/{{ rout.id }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a></td>
+           <td> <a href="/delete/{{ rout.id }}">Delete</a>&nbsp;&nbsp;&nbsp;</td>
+          <td>  <a href="/deleteip/{{ rout.loopback }}">Delete based on IP</a>
+        </td>
+    </tr>
+{% endfor %}
+    </tbody>
+</table>
+<br>
+<br>
+<center><a href="/router" class="btn btn-primary">Add New Record</a></center>
+</body>
+</html>
