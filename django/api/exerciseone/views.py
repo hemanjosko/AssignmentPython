@@ -44,7 +44,7 @@ def uniquerouter(request):
         print(form.is_valid())
         if form.is_valid():
             try:
-                count = Router.objects.filter(loopback=form['loopback'].value(), hostname=form['hostname'].value()).count()
+                count = Router.objects.filter(loopback=form['loopback'].value(), hostname=form['hostname'].value(), is_deleted=0).count()
                 print(count)
                 if count > 1:
                     return HttpResponse("Need unique loopback and hostname")
@@ -66,11 +66,11 @@ def edit(request, id):
     return render(request,'exerciseone/edit.html', {'router':router})
 
 def editip(request, id):
-    count = Router.objects.filter(loopback=id).count()
+    count = Router.objects.filter(loopback=id, is_deleted=0).count()
     if count >1:
         return HttpResponse("More than one ip found")
     router = Router.objects.get(loopback=id)
-    return render(request,'exerciseone/edit.html', {'router':router})
+    return render(request,'exerciseone/edittwo.html', {'router':router})
 
 
 def update(request, id):
@@ -80,6 +80,14 @@ def update(request, id):
         form.save()
         return redirect(show)
     return render(request, 'exerciseone/edit.html', {'router': router})
+
+def updatetwo(request, id):
+    router = Router.objects.get(id=id)
+    form = RouterForm(request.POST, instance = router)
+    if form.is_valid():
+        form.save()
+        return redirect(showtwo)
+    return render(request, 'exerciseone/edittwo.html', {'router': router})
 
 
 def destroy(request, id):

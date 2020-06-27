@@ -9,6 +9,7 @@ urlpatterns = [
     path('show/', views.show),
     path('edit/<int:id>', views.edit),
     path('update/<int:id>', views.update),
+    path('updatetwo/<int:id>', views.updatetwo),
     path('delete/<int:id>', views.destroy),
     path('deleteip/<str:id>', views.deleteonip),
     path('editip/<str:id>', views.editip),
