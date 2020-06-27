@@ -20,7 +20,7 @@ def index(request):
 
 def generatedata(request):
     for x in range(5):
-        router = Router.objects.create(sapid=x,hostname="hostname",loopback="loopback",macaddress="121312")
+        router = Router.objects.create(sapid="sap:1/2/3:801"+str(x), hostname="hostname",loopback="127.0.0."+str(x),macaddress="11:22:33:aa:bb:cc")
         router.save()
     return redirect(index)
 
