@@ -12,4 +12,5 @@ urlpatterns = [
     path('update/<int:id>', views.update),
     path('delete/<int:id>', views.destroy),
     path('deleteip/<str:id>', views.deleteonip),
+    path('editip/<str:id>', views.editip),
 ]

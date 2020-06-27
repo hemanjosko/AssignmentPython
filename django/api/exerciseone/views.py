@@ -47,6 +47,13 @@ def edit(request, id):
     router = Router.objects.get(id=id)
     return render(request,'exerciseone/edit.html', {'router':router})
 
+def editip(request, id):
+    count = Router.objects.filter(loopback=id).count()
+    if count >1:
+        return HttpResponse("More than one ip found")
+    router = Router.objects.get(loopback=id)
+    return render(request,'exerciseone/edit.html', {'router':router})
+
 
 def update(request, id):
     router = Router.objects.get(id=id)
