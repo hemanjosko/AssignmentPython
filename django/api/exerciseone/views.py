@@ -91,7 +91,7 @@ def destroy(request, id):
 def deleteonip(request, id):
     router = Router.objects.filter(loopback=id)
     router.update(is_deleted=1)
-    return redirect(show)
+    return redirect(showtwo)
 
 def showtwo(request):
     router = Router.objects.filter(is_deleted=0)
