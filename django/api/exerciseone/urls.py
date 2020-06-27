@@ -13,4 +13,5 @@ urlpatterns = [
     path('delete/<int:id>', views.destroy),
     path('deleteip/<str:id>', views.deleteonip),
     path('editip/<str:id>', views.editip),
+    path('token-auth/uniquerouter/', views.uniquerouter),
 ]

@@ -38,6 +38,23 @@ def router(request):
         form = RouterForm()
     return render(request,'exerciseone/create.html',{'form':form})
 
+def uniquerouter(request):
+    if request.method == "POST":
+        form = RouterForm(request.POST)
+        print(form.is_valid())
+        if form.is_valid():
+            try:
+                count = Router.objects.filter(loopback=form.loopback, hostname=form.hostname).count()
+                if count > 1:
+                    return HttpResponse("Need unique loopback and hostname")
+                form.save()
+                return redirect(showtwo)
+            except Exception as e:
+                print(e)
+    else:
+        form = RouterForm()
+    return render(request,'exerciseone/createunique.html',{'form':form})
+
 def show(request):
     router = Router.objects.filter(is_deleted=0)
     print(router)
