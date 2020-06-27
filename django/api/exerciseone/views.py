@@ -110,12 +110,17 @@ def range(request):
     return render(request,"exerciseone/filterip.html",{'router':router})
 
 def sapid(request):
-    result = '''sapid'''
-    return HttpResponse(result)
+    return render(request,"exerciseone/filtersapid.html",{'router':router})
 
 def showthree(request):
     router = Router.objects.filter(is_deleted=0)\
         .filter(loopback__gt=request.POST['loopback'])\
         .filter(loopback__lt=request.POST['loopback_two'])
+    print(router)
+    return render(request,"exerciseone/show_two.html",{'router':router})
+
+def showfour(request):
+    router = Router.objects.filter(is_deleted=0)\
+        .filter(sapid=request.POST['sapid'])
     print(router)
     return render(request,"exerciseone/show_two.html",{'router':router})

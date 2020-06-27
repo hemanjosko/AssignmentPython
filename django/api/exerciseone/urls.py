@@ -18,4 +18,5 @@ urlpatterns = [
     path('token-auth/range/', views.range),
     path('token-auth/sapid/', views.sapid),
     path('token-auth/ipfilter/', views.showthree),
+    path('token-auth/iptype/', views.showfour),
 ]
