@@ -7,6 +7,7 @@ urlpatterns = [
     path('generatedata/', views.generatedata),
     path('router/', views.router),
     path('show/', views.show),
+    path('token-auth/show/', views.showtwo),
     path('edit/<int:id>', views.edit),
     path('update/<int:id>', views.update),
     path('delete/<int:id>', views.destroy),

@@ -26,7 +26,7 @@
         <th>Router Hostname</th>
         <th>Router Loopback(ipv4)</th>
         <th>Router MacAddress</th>
-        <th colspan="2">Actions</th>
+        <th>Actions</th>
     </tr>
     </thead>
     <tbody>
@@ -36,9 +36,8 @@
         <td>{{ rout.hostname }}</td>
         <td>{{ rout.loopback }}</td>
         <td>{{ rout.macaddress }}</td>
-        <td>
-            <a href="/edit/{{ rout.id }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a></td>
-           <td> <a href="/delete/{{ rout.id }}">Delete</a>&nbsp;&nbsp;&nbsp;</td>
+
+          <td>  <a href="/deleteip/{{ rout.loopback }}">Delete based on IP</a>
         </td>
     </tr>
 {% endfor %}

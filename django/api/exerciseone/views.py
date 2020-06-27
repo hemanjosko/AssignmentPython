@@ -67,3 +67,8 @@ def deleteonip(request, id):
     router = Router.objects.filter(loopback=id)
     router.update(is_deleted=1)
     return redirect(show)
+
+def showtwo(request):
+    router = Router.objects.filter(is_deleted=0)
+    print(router)
+    return render(request,"exerciseone/show_two.html",{'router':router})

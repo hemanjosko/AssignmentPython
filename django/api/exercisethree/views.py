@@ -17,7 +17,12 @@ def destroyonip(request):
     return redirect(show)
 
 def token(request):
-    result ='''d475ef8e15a302fb22103ea21df6d06f0557d995
+    result ='''<pre>
+    
+    d475ef8e15a302fb22103ea21df6d06f0557d995
     append /token-auth/ and you can use this token authentication for apis
-    '''
+    
+    
+    <a href="/token-auth/show/">Click to access token based api</a>
+    </pre>'''
     return HttpResponse(result)
