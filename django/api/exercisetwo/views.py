@@ -106,7 +106,9 @@ def newview(request):
 
 def generatedataten(request):
     for x in range(11):
-        router = Router.objects.create(sapid=x, hostname="hostname", loopback="loopback", macaddress="121312")
+        router = Router.objects.create(sapid="sap:1/2/3:801" + str(x+2), hostname="hostname",
+                                       loopback="127.0.0." + str(x+2), macaddress="11:22:33:aa:bb:cc")
+
         router.save()
     return HttpResponse('''Inserted click to check <a href='/show/'>show inserted value</a>''')
 
